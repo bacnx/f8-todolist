@@ -3,10 +3,10 @@ import { connect } from '../store.js'
 
 import FooterItem from './FooterItem.js'
 
-function Footer({ todos, filters }) {
+function Footer({ todos, filter, filters }) {
   return html`
     <footer class="footer">
-      <span class="todo-count"><strong>${todos.length}</strong> item left</span>
+      <span class="todo-count"><strong>${todos.filter(filters[filter]).length}</strong> item left</span>
       <ul class="filters">
         ${ (Object.keys(filters)).map(type => FooterItem({ type })) }
       </ul>
